@@ -8,9 +8,10 @@ requires-python = ">=3.8"
 [project.urls]
 Homepage = "https://github.com/live-by-unix/Chunks"
 
-[tool.setuptools]
-packages = ["chunk"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["chunk"]
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
