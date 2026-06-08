@@ -1,9 +1,16 @@
 [project]
-name = "Chunks"
+name = "split-chunks"
 version = "1.0.0"
-description = "Brutalist universal file chunker. Only two commands: chunk.chunk_size='10MB'; chunk.chunk('/absolute/path/of/file/here')."
+description = "Brutalist universal file chunker."
 authors = [{ name = "live-by-unix" }]
 requires-python = ">=3.8"
 
 [project.urls]
-Homepage = "https://github.com/live-by-unix/Chunks" 
+Homepage = "https://github.com/live-by-unix/Chunks"
+
+[tool.setuptools]
+packages = ["chunk"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
