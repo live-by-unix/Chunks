@@ -1,0 +1,9 @@
+[project]
+name = "Chunks"
+version = "1.0.0"
+description = "Brutalist universal file chunker. Only two commands: chunk.chunk_size='10MB'; chunk.chunk('/absolute/path/of/file/here')."
+authors = [{ name = "live-by-unix" }]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/live-by-unix/Chunks" 
