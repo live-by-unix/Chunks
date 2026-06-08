@@ -8,6 +8,9 @@ requires-python = ">=3.8"
 [project.urls]
 Homepage = "https://github.com/live-by-unix/Chunks"
 
+[tool.setuptools]
+package-dir = {"" = "."}
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["chunk"]
