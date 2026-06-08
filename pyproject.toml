@@ -1,49 +1,20 @@
-name: Publish to PyPI
+[project]
+name = "split_chunks"
+version = "1.0.0"
+description = "Brutalist universal file chunker."
+authors = [{ name = "live-by-unix" }]
+requires-python = ">=3.8"
 
-on:
-  release:
-    types: [published]
+[project.urls]
+Homepage = "https://portfoliounix.pages.dev"
 
-permissions:
-  id-token: write
-  contents: read
+[tool.setuptools]
+package-dir = {"" = "."}
 
-jobs:
-  build-and-publish:
-    runs-on: ubuntu-latest
-    environment: pypi
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["chunk"]
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Debug workspace
-        run: |
-          echo "=== WORKSPACE ROOT ==="
-          ls -R .
-
-      - name: Ensure pyproject exists
-        run: |
-          if [ ! -f pyproject.toml ]; then
-            echo "pyproject.toml NOT FOUND — failing"
-            exit 1
-          fi
-          echo "pyproject.toml FOUND"
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install build backend
-        run: pip install build
-
-      - name: Build package
-        run: |
-          echo "=== BUILDING PACKAGE ==="
-          python -m build
-          echo "=== BUILT FILES ==="
-          ls -R dist
-
-      - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@v1.10.0
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
